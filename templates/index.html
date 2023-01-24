@@ -1,0 +1,14 @@
+<form method='POST'>
+   {{form.hidden_tag()}}
+   {{ form.name.label}}{{form.name}}
+   {{form.submit}}
+</form>
+
+
+
+
+{% for mess in get_flashed_messages() %}
+
+{{mess}}
+
+{% endfor %}
