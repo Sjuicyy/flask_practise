@@ -1,0 +1,12 @@
+<h1>Enter following details</h1>
+
+
+<form method='POST'>
+   {{ form.hidden_tag()}}
+   {{ form.name.label }} <br> {{form.name}} <br>
+   {{ form.netured.label }}  {{form.netured}} <br>
+   {{ form.mood.label }} <br> {{form.mood}} <br>
+   {{ form.food_choice.label }} <br> {{form.food_choice}}  <br><br>
+   {{ form.feedback.label }} <br> {{form.feedback}} <br> <br>
+   {{form.submit}} <br>
+</form>
