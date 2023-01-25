@@ -2,28 +2,46 @@ import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
-basedir=os.path.abspath(os.path.basename(__name__))
+
+
 app=Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///'+os.path.join(basedir,'data.sqlite')
+app.app_context().push()
 
-app.config['SQLALCHELY_TRACK_MODIFICATOIIN']=False
+basedir=os.path.abspath(os.path.basename(__name__))
+app.config['SQLALCHEMY_DATABASE_URI']="sqlite:///"+os.path.join(basedir,'data.sqlite')
+app.config['SQLALCHEMY_TRACK_MODIFICATION']=False
 
-db= SQLAlchemy(app)
+
+print(app.config['SQLALCHEMY_DATABASE_URI'])
+
+db=SQLAlchemy(app)
 
 
-class puppy(db.Model):
-    __name__='puppies'
+
+
+class detail(db.Model):
+    __name__='detail'
     
     
     id=db.Column(db.Integer,primary_key=True)
     name=db.Column(db.Text)
-    age=db.Columb(db.Integer)
-    
+    age=db.Column(db.Integer)
     
     def __init__(self,name,age):
         self.name=name
         self.age=age
         
     def __repr__(self):
-        return f"your {self.name} is {self.age} years old"
+        return f"hello {self.name} your age is {self.age}"
+
+
+
+
+
+
+
+
+
+
+
