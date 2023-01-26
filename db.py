@@ -1,10 +1,27 @@
 from basic import db ,Puppy
 
 
-asl=Puppy('ashlin',5)
-jak=Puppy('jackie',7)
-wol=Puppy('wolverine',4)
-pet=Puppy('pettie',5)
+data=Puppy.query.all()
+print(data)
 
-db.session.add_all([asl,jak,wol,pet])
+
+data=Puppy.query.get(1)
+print(data.name)
+
+data=Puppy.query.filter_by(name='ashlin')
+print(data.all())
+
+
+
+data=Puppy.query.get(1)
+data.name='ashlin'
+db.session.add(data)
+db.session.commit()
+
+
+data=Puppy.query.get(1)
+print(data.name)
+
+data=Puppy.query.get(4)
+db.session.delete(data)
 db.session.commit()
